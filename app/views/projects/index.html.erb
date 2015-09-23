@@ -1,14 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Projects</h1>
+<h1>Digital Signage Weekly Projects</h1>
 
-<table class="table table-striped">
+<table class="table table-striped table-condensed">
   <thead>
     <tr>
-      <th>Name</th>
+      <th>Engineer</th>
       <th>Project</th>
       <th>Status</th>
-      <th>Percentage</th>
+      <th>Percentage Complete</th>
       <th>This Week</th>
       <th>Next Week</th>
       <th colspan="3"></th>
@@ -24,7 +24,6 @@
         <td><%= project.percentage %></td>
         <td><%= project.thisweek %></td>
         <td><%= project.nextweek %></td>
-        <td><%= link_to 'Show', project, class: "btn btn-primary" %></td>
         <td><%= link_to 'Edit', edit_project_path(project), class: "btn btn-success" %></td>
         <td><%= link_to 'Delete', project, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
       </tr>

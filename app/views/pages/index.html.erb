@@ -1,3 +1,73 @@
 <div class="jumbotron">
 	<h1>LNE DSS Reporting</h1>
+	<%= link_to "New Project", new_project_path, class: "btn btn-primary" %>
 </div>
+
+<% @projects.each do |project| %>
+<div class="well">
+<div class="row">
+	<div class="col-md-3">
+		<div class="panel panel-info">
+		  <div class="panel-heading">
+		    <h3 class="panel-title">Engineer</h3>
+		  </div>
+		  <div class="panel-body">
+		    <%= project.name %>
+		  </div>
+		</div>
+	</div>
+	<div class="col-md-3">
+		<div class="panel panel-info">
+		  <div class="panel-heading">
+		    <h3 class="panel-title">Project</h3>
+		  </div>
+		  <div class="panel-body">
+		    <%= project.project %>
+		  </div>
+		</div>
+	</div>
+	<div class="col-md-3">
+		<div class="panel panel-info">
+		  <div class="panel-heading">
+		    <h3 class="panel-title">Status</h3>
+		  </div>
+		  <div class="panel-body">
+		    <%= project.status %>
+		  </div>
+		</div>
+	</div>
+	<div class="col-md-3">
+		<div class="panel panel-info">
+		  <div class="panel-heading">
+		    <h3 class="panel-title">Percent Complete</h3>
+		  </div>
+		  <div class="panel-body">
+		    <%= project.percentage %>%
+		  </div>
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="panel panel-success">
+		  <div class="panel-heading">
+		    <h3 class="panel-title">This Week's Project</h3>
+		  </div>
+		  <div class="panel-body">
+		    <%= project.thisweek %>
+		  </div>
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="panel panel-success">
+		  <div class="panel-heading">
+		    <h3 class="panel-title">Next Week's Project</h3>
+		  </div>
+		  <div class="panel-body">
+		    <%= project.nextweek %>
+		  </div>
+		</div>
+	</div>
+</div>
+</div>
+<hr>
+
+<% end %>
