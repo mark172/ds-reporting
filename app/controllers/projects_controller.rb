@@ -28,6 +28,12 @@ class ProjectsController < ApplicationController
 
     respond_to do |format|
       if @project.save
+        name = params[:project][:name]
+        project = params[:project][:project]
+        status = params[:project][:status]
+
+        ReportMailer.report_email(name, project, status).deliver
+
         format.html { redirect_to projects_path, notice: 'Project was successfully created.' }
         format.json { render :show, status: :created, location: @project }
       else
