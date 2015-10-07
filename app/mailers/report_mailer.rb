@@ -5,7 +5,6 @@ class ReportMailer < ActionMailer::Base
 		@name = name
 		@project = project
 		@status = status
-		@body = body
 
 		mail(from: 'email', subject: 'Report Message')
 	end
