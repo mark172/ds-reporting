@@ -6,6 +6,6 @@ class ReportMailer < ActionMailer::Base
 		@project = project
 		@status = status
 
-		mail(from: 'email', subject: 'Report Message')
+		mail(from: name, subject: 'Report Message')
 	end
 end
