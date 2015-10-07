@@ -31,8 +31,11 @@ class ProjectsController < ApplicationController
         name = params[:project][:name]
         project = params[:project][:project]
         status = params[:project][:status]
+        percentage = params[:project][:percentage]
+        thisweek = params[:project][:thisweek]
+        nextweek = params[:project][:nextweek]
 
-        ReportMailer.report_email(name, project, status).deliver
+        ReportMailer.report_email(name, project, status, percentage, thisweek, nextweek).deliver
 
         format.html { redirect_to projects_path, notice: 'Project was successfully created.' }
         format.json { render :show, status: :created, location: @project }
