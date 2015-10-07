@@ -9,6 +9,6 @@ class ReportMailer < ActionMailer::Base
 		@thisweek = thisweek
 		@nextweek = nextweek
 
-		mail(from: name, subject: 'Report Message')
+		mail(from: 'markevangelista@livenation.com', subject: 'Report Message')
 	end
 end
