@@ -19,9 +19,9 @@ gem "less-rails"
 
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 
-gem 'fullcalendar-rails'
+gem 'premailer-rails'
 
-gem 'momentjs-rails'
+gem 'nokogiri'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
