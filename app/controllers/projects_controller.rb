@@ -25,7 +25,7 @@ class ProjectsController < ApplicationController
   # POST /projects.json
   def create
     @project = Project.new(project_params)
-
+        @projects.each do
     respond_to do |format|
       if @project.save
         name = params[:project][:name]
@@ -34,8 +34,11 @@ class ProjectsController < ApplicationController
         percentage = params[:project][:percentage]
         thisweek = params[:project][:thisweek]
         nextweek = params[:project][:nextweek]
+      end
+
 
         ReportMailer.report_email(name, project, status, percentage, thisweek, nextweek).deliver
+
 
         format.html { redirect_to projects_path, notice: 'Project was successfully created.' }
         format.json { render :show, status: :created, location: @project }
