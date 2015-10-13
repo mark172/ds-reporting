@@ -22,8 +22,9 @@
           <%= f.text_field :project, required: true, class: "form-control" %>
         </div>
         <div class="form-group">
-          <%= f.label :status %><br>
-          <%= f.text_field :status, required: true, class: "form-control" %>
+          <%= f.label :statuses_id, "Status" %><br>
+          <%= f.select :statuses_id, options_from_collection_for_select(Status.all, :id, :state, @project.statuses_id),
+          { :include_blank => false }, { :class => 'form-control'} %>
         </div>
         <div class="form-group">
           <%= f.label :percentage, "Percent complete" %><br>

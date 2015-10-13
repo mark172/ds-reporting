@@ -5,7 +5,6 @@ class ProjectsController < ApplicationController
   # GET /projects.json
   def index
     @projects = Project.all
-    @project_status = Status.all.map{|u| [u.state, u.id] }
   end
 
   # GET /projects/1
@@ -16,12 +15,10 @@ class ProjectsController < ApplicationController
   # GET /projects/new
   def new
     @project = Project.new
-    @project_status = Status.all.map{|u| [u.state, u.id] }
   end
 
   # GET /projects/1/edit
   def edit
-    @project_status = Status.all.map{|u| [u.state, u.id] }
   end
 
   # POST /projects
@@ -33,7 +30,7 @@ class ProjectsController < ApplicationController
       if @project.save
         name = params[:project][:name]
         project = params[:project][:project]
-        status = params[:project][:status]
+        statuses_id = params[:project][:statuses]
         percentage = params[:project][:percentage]
         thisweek = params[:project][:thisweek]
         nextweek = params[:project][:nextweek]
@@ -41,7 +38,7 @@ class ProjectsController < ApplicationController
         ReportMailer.report_email(name, project, status, percentage, thisweek, nextweek).deliver
 
         format.html { redirect_to projects_path, notice: 'Project was successfully created.' }
-        format.json { render :show, status: :created, location: @project }
+        format.json { render :show, statuses: :created, location: @project }
       else
         format.html { render :new }
         format.json { render json: @project.errors, status: :unprocessable_entity }
@@ -90,6 +87,6 @@ class ProjectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
-      params.require(:project).permit(:name, :project, :status, :percentage, :thisweek, :nextweek)
+      params.require(:project).permit(:name, :project, :statuses_id, :percentage, :thisweek, :nextweek)
     end
 end

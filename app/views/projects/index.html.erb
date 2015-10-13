@@ -20,7 +20,7 @@
       <tr>
         <td><%= project.name %></td>
         <td><%= project.project %></td>
-        <td><%= project.status %></td>
+        <td><%= project.text_for_status %></td>
         <td><%= project.percentage %></td>
         <td><%= project.thisweek %></td>
         <td><%= project.nextweek %></td>
@@ -33,4 +33,4 @@
 
 <br>
 
-<%= link_to 'New Project', new_project_path %>
+<%= link_to 'New Project', new_project_path, class: "btn btn-primary" %>
