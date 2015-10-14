@@ -18,7 +18,7 @@
   <tbody>
     <% @projects.each do |project| %>
       <tr>
-        <td><%= project.name %></td>
+        <td><%= project.text_for_engineer %></td>
         <td><%= project.project %></td>
         <td><%= project.text_for_status %></td>
         <td><%= project.percentage %></td>

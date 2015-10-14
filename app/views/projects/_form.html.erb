@@ -15,7 +15,8 @@
     <div class="well">
         <div class="form-group">
           <%= f.label :name, "Engineer" %><br>
-          <%= f.text_field :name, required: true, class: "form-control" %>
+          <%= f.select :engineers_id, options_from_collection_for_select(Engineer.all, :id, :name, @project.engineers_id),
+          { :include_blank => false }, { :class => 'form-control'} %>
         </div>
         <div class="form-group">
           <%= f.label :project %><br>
