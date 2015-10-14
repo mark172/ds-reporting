@@ -11,10 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151013232703) do
+ActiveRecord::Schema.define(version: 20151014205944) do
 
   create_table "engineers", force: :cascade do |t|
     t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "percentages", force: :cascade do |t|
+    t.string   "percent"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -26,10 +32,11 @@ ActiveRecord::Schema.define(version: 20151013232703) do
     t.integer  "percentage"
     t.text     "thisweek"
     t.text     "nextweek"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
     t.integer  "statuses_id"
     t.integer  "engineers_id"
+    t.integer  "percentages_id"
   end
 
   create_table "statuses", force: :cascade do |t|
