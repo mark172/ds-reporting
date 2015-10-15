@@ -5,6 +5,14 @@ class ProjectsController < ApplicationController
   # GET /projects.json
   def index
     @projects = Project.all
+
+    respond_to do |format|
+      format.html
+      format.csv do
+        headers['Content-Disposition'] = "attachment; filename=\"project-list\""
+        headers['Content-Type'] ||= 'text/csv'
+      end
+    end
   end
 
   # GET /projects/1
@@ -51,14 +59,6 @@ class ProjectsController < ApplicationController
   def update
     respond_to do |format|
       if @project.update(project_params)
-        name = params[:project][:name]
-        project = params[:project][:project]
-        status = params[:project][:status]
-        percentage = params[:project][:percentage]
-        thisweek = params[:project][:thisweek]
-        nextweek = params[:project][:nextweek]
-
-        ReportMailer.report_email(name, project, status, percentage, thisweek, nextweek).deliver
         
         format.html { redirect_to @project, notice: 'Project was successfully updated.' }
         format.json { render :show, status: :ok, location: @project }
@@ -74,7 +74,7 @@ class ProjectsController < ApplicationController
   def destroy
     @project.destroy
     respond_to do |format|
-      format.html { redirect_to projects_url, notice: 'Project was successfully destroyed.' }
+      format.html { redirect_to projects_url, notice: 'Project was successfully deleted.' }
       format.json { head :no_content }
     end
   end
