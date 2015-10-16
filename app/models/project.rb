@@ -1,6 +1,8 @@
 class Project < ActiveRecord::Base
 	belongs_to :status
 
+	validates :project, presence: true
+
 	@@status_for_index = { 1 => "On Track", 2 => "Delayed", 3 => "Problem", 4 => "Closed"}
 
 	@@engeineer_for_index = { 1 => "Mike Voss", 2 => "Jessica Yang", 3 => "Mark Evangelista", 4 => "Javier Palenzuela"}
