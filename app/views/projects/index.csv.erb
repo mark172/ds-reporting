@@ -1,0 +1,5 @@
+<% headers = ['Engineer', 'Project', 'Status', 'Percentage', 'This Weeks Project', 'Next Weeks Project' ] %>
+<%= CSV.generate_line headers %>
+<% @projects.each do |project| %>
+  <%= CSV.generate_line([project.text_for_engineer, project.project, project.text_for_status, project.text_for_percentage, project.thisweek, project.nextweek]) %>
+<% end %>
