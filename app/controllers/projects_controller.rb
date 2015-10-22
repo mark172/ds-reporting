@@ -36,7 +36,7 @@ class ProjectsController < ApplicationController
 
     respond_to do |format|
       if @project.save
-        name = params[:project][:name]
+        name = params[:project][:engineers_id]
         project = params[:project][:project]
         statuses_id = params[:project][:statuses]
         percentage = params[:project][:percentage]
