@@ -6,7 +6,7 @@ class ReportMailer < ActionMailer::Base
 	@@engineer_for_index = { 1 => "Mike Voss", 2 => "Jessica Yang", 3 => "Mark Evangelista", 4 => "Javier Palenzuela"}
 
 	def report_email(name, project, status, percentage, thisweek, nextweek)
-		@name = project.text_for_engineer[name]
+		@name = name
 		@project = project
 		@status = status
 		@percentage = percentage
