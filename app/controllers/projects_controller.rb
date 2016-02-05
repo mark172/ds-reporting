@@ -36,14 +36,14 @@ class ProjectsController < ApplicationController
 
     respond_to do |format|
       if @project.save
-        name = params[:project][:engineers_id]
-        project = params[:project][:project]
-        statuses_id = params[:project][:statuses]
-        percentage = params[:project][:percentage]
-        thisweek = params[:project][:thisweek]
-        nextweek = params[:project][:nextweek]
+        # name = params[:project][:engineers_id]
+        # project = params[:project][:project]
+        # statuses_id = params[:project][:statuses]
+        # percentage = params[:project][:percentage]
+        # thisweek = params[:project][:thisweek]
+        # nextweek = params[:project][:nextweek]
 
-        ReportMailer.report_email(name, project, status, percentage, thisweek, nextweek).deliver
+        # ReportMailer.report_email(name, project, status, percentage, thisweek, nextweek).deliver
 
         format.html { redirect_to projects_path, notice: 'Project was successfully created.' }
         format.json { render :show, statuses: :created, location: @project }
